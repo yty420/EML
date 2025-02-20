@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='eml_package',
+    name='EML',
     version='0.1',  # 版本号，请根据实际情况修改
     packages=find_packages(),
     install_requires=[
