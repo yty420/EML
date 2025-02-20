@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='EML',
-    version='0.1',  # 版本号，请根据实际情况修改
+    version='0.1', 
     packages=find_packages(),
     install_requires=[
         'pandas>=1.0.0',
