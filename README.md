@@ -15,7 +15,7 @@ easy machine learning
 
 ```bash
 pip install git+https://github.com/yty420/EML.git
-
+```
 
 
 
