@@ -51,7 +51,6 @@ import pickle
 
 # 设置全局随机种子
 np.random.seed(11)
-random.seed(11)
 os.environ['PYTHONHASHSEED'] = str(11)
 
 # 可视化配置
