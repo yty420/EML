@@ -960,11 +960,32 @@ def split_and_save_data(X, y, test_size=0.4, random_state=42, shuffle=True, stra
 
 
 
-__all__ = ['select_features_cv_importance_multi_model', 'save_results_to_csv', 'load_results_from_csv',
-           'evaluate_feature_lists_with_counts', 'use_select_feature_cv', 'stacking_binary_classification',
-           'use_select_feature_cv2', 'use_select_feature_cv3', 'use_select_feature_cv4',
-           'select_features_cv_importance_multi_model3', 'read_csv_to_dict', 'save_results_to_csv',
-           'train_and_evaluate_model', 'evaluate_model', 'split_and_save_data']
+__all__ = [
+    'select_features_chi2',
+    'select_features_mi',
+    'select_features_by_variance',
+    'select_features_variance_bythreshold',
+    'select_features_sfs',
+    'select_features_rfe',
+    'select_features_cv_importance_single_model',
+    'select_features_cv_importance_multi_model',
+    'save_results_to_csv',
+    'select_features_cv_importance_multi_model2',
+    'load_results_from_csv',
+    'evaluate_feature_lists_with_counts',
+    'use_select_feature_cv',
+    'stacking_binary_classification',
+    'use_select_feature_cv2',
+    'get_scaler',
+    'use_select_feature_cv3',
+    'use_select_feature_cv4',
+    'select_features_cv_importance_multi_model3',
+    'read_csv_to_dict',
+    'save_results_to_csv',
+    'train_and_evaluate_model',
+    'evaluate_model',
+    'split_and_save_data'
+]
 
 
 
