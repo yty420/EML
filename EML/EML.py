@@ -48,7 +48,7 @@ import seaborn as sns
 # 导入joblib和pickle用于加载与保存模型等操作
 import joblib
 import pickle
-import dump
+from joblib import dump
 # 设置全局随机种子
 np.random.seed(11)
 os.environ['PYTHONHASHSEED'] = str(11)
