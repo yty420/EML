@@ -56,7 +56,7 @@ os.environ['PYTHONHASHSEED'] = str(11)
 plt.rcParams['figure.figsize'] = [10, 6]
 sns.set_style("whitegrid")
 
-import clone
+from sklearn.base import clone
 from sklearn.impute import KNNImputer
 
 
