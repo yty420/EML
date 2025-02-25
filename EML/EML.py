@@ -57,7 +57,8 @@ os.environ['PYTHONHASHSEED'] = str(11)
 plt.rcParams['figure.figsize'] = [10, 6]
 sns.set_style("whitegrid")
 
-
+import clone
+from sklearn.impute import KNNImputer
 
 
 
@@ -988,4 +989,45 @@ __all__ = [
 ]
 
 
+def process_dataframe(df, k=5, f=0.1):
+    """
+    对输入的数据框进行处理，根据缺失值出现频率决定是否进行KNN填充。
+    
+    参数:
+    df : pandas DataFrame
+        输入的行为特征、列为样本名的数据框。
+    k : int, optional
+        KNN算法中使用的邻居数，默认为5。
+    f : float, optional
+        缺失值频率阈值，如果某个特征的缺失值比例大于f，则不进行处理，默认为0.1。
+        
+    返回:
+    new_df : pandas DataFrame
+        处理后的数据框，仅包含缺失值比例不大于f的特征，并保持原始索引。
+    """
+    # 初始化一个空列表用于存储需要保留的特征名
+    features_to_keep = []
+    
+    # 遍历每一个特征（即DataFrame的每一列）
+    for column in df.columns:
+        # 计算该列缺失值的比例
+        missing_ratio = df[column].isnull().mean()
+        
+        # 如果缺失值比例小于设定的阈值f，则保留该特征并打印提示信息
+        if missing_ratio < f:
+            print(f"特征 '{column}' 的缺失值比例 ({missing_ratio:.2%}) 低于阈值 {f}, 将进行KNN填充。")
+            features_to_keep.append(column)
+        else:
+            # 如果缺失值比例高于或等于f，则打印提示信息说明不会对该特征进行处理
+            print(f"警告: 特征 '{column}' 的缺失值比例 ({missing_ratio:.2%}) 高于阈值 {f}, 不进行处理。")
 
+    # 根据保留的特征筛选数据框
+    df_filtered = df[features_to_keep]
+    
+    # 初始化KNNImputer
+    imputer = KNNImputer(n_neighbors=k)
+    
+    # 应用KNN填充并转换回DataFrame，同时保留原始索引
+    df_imputed = pd.DataFrame(imputer.fit_transform(df_filtered), columns=df_filtered.columns, index=df.index)
+    
+    return df_imputed
