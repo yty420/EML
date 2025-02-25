@@ -23,8 +23,7 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.feature_selection import RFE, SequentialFeatureSelector, SelectKBest, chi2, mutual_info_classif, VarianceThreshold
 
 # 导入scikit-learn评估指标相关库
-from sklearn.metrics import (classification_report, confusion_matrix,
-                           accuracy_score, roc_curve, auc, roc_auc_score)
+from sklearn.metrics import (classification_report, confusion_matrix,accuracy_score, roc_curve, auc, roc_auc_score)
 
 # 导入scikit-learn集成学习相关库
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, StackingClassifier
